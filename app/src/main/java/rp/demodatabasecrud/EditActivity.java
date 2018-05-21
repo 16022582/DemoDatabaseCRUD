@@ -52,6 +52,9 @@ public class EditActivity extends AppCompatActivity {
                 DBHelper db = new DBHelper(EditActivity.this);
                 db.deleteNote(data.getId());
                 db.close();
+
+                setResult(RESULT_OK);
+                finish();
             }
         });
 

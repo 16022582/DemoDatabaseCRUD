@@ -75,10 +75,21 @@ public class MainActivity extends AppCompatActivity {
 
                 Note target = new Note(Integer.parseInt(id), content);
                 i.putExtra("data", target);
-                startActivity(i);
+                startActivityForResult(i, 9);
             }
         });
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && requestCode == 9){
+            btnRetrieve.performClick();
+        }
+    }
+
 }
 
